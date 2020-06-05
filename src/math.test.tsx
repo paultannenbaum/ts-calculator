@@ -1,4 +1,4 @@
-import { add, subtract, multiply, divide } from '../context/math';
+import { add, subtract, multiply, divide } from './math';
 
 test('add', () => {
   expect(add(2, 3)).toBe(5);
