@@ -1,4 +1,4 @@
-import Machine from './state_machine';
+import Machine from './state-machine';
 
 test('initial state', () => {
   const machine = new Machine();
