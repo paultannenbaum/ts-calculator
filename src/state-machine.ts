@@ -122,7 +122,6 @@ const calcTotal = (state: state): number => {
       return multiply(state.input1, state.input2);
     case 'divide':
       return divide(state.input1, state.input2);
-    // TODO: Make sure this is not reachable
     default:
       return 0;
   }
