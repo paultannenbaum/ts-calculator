@@ -41,9 +41,6 @@ const App = () => {
         </div>
       </div>
     </div>
-    <div className="state">
-      Current State: { state.current }
-    </div>
   </div>
   );
 }

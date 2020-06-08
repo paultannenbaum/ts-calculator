@@ -132,5 +132,3 @@ const calcTotal = (state: state): number => {
       return state.readout; 
   }
 };
-
-
