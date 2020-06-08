@@ -26,6 +26,10 @@ export default class Machine {
   transition(val: payload): void {
     this.state = handleTransition(this.state, val);
   }
+
+  clear(): void {
+    this.state = initialState
+  }
 }
 
 // Private

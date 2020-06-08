@@ -29,7 +29,10 @@ const App = () => {
           <button className="zero" onClick={() => handleInput(0)}>0</button>
         </div>
         <div className="operands">
-          <button className="reset" onClick={() => handleInput('equals')}>C</button>
+          <button className="reset" onClick={() => {
+            calculator.clear();
+            setState(calculator.state);
+          }}>C</button>
           <button onClick={() => handleInput('add')}>+</button>
           <button onClick={() => handleInput('subtract')}>-</button>
           <button onClick={() => handleInput('multiply')}>×</button>
