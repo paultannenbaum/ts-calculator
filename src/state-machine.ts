@@ -9,7 +9,7 @@ type state = {
   input1: number | null;
   input2: number | null;
   operand: operand | null;
-  readout: number | null;
+  readout: number;
 };
 type payload = operand | number;
 type currentState = state;
@@ -34,7 +34,7 @@ const initialState: state = {
   input1: null,
   input2: null,
   operand: null,
-  readout: null,
+  readout: 0,
 };
 
 const handleTransition = (currentState: currentState = initialState, payload: payload): updatedState => {
@@ -78,6 +78,7 @@ const handleOperandTransition = (state: state, val: operand): state => {
         ...state,
         operand: val,
         current: 'operand',
+        readout: calcTotal(state)
       };
     case 'operand':
       // Choosing to overwrite previous input. could also ignore
@@ -92,7 +93,7 @@ const handleOperandTransition = (state: state, val: operand): state => {
         operand: val,
         input2: null,
         readout: calcTotal(state),
-        current: 'input1',
+        current: 'input2',
       };
     default:
       return state;
@@ -110,7 +111,7 @@ const appendNumber = (x: number | null, y: number): number => {
 const calcTotal = (state: state): number => {
   // TODO: Make sure this is not reachable
   if (isNull(state.input1) || isNull(state.input2)) {
-    return 0;
+    return state.readout;
   }
 
   switch (state.operand) {
@@ -122,8 +123,9 @@ const calcTotal = (state: state): number => {
       return multiply(state.input1, state.input2);
     case 'divide':
       return divide(state.input1, state.input2);
+    case 'equals':
     default:
-      return 0;
+      return state.readout; 
   }
 };
 

@@ -2,14 +2,7 @@ import Machine from './state-machine';
 
 test('initial state', () => {
   const machine = new Machine();
-
-  expect(machine.state).toEqual({
-    current: 'input1',
-    input1: null,
-    input2: null,
-    operand: null,
-    readout: null,
-  });
+  expect(machine.state.readout).toEqual(0);
 });
 
 test('basic operations', () => {
