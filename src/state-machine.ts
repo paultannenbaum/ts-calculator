@@ -76,7 +76,6 @@ const handleOperandTransition = (state: state, val: operand): state => {
         readout: calcTotal(state)
       };
     case 'operand':
-      // Choosing to overwrite previous input. could also ignore
       return {
         ...state,
         operand: val,
@@ -104,7 +103,6 @@ const appendNumber = (x: number | null, y: number): number => {
 };
 
 const calcTotal = (state: state): number => {
-  // TODO: Make sure this is not reachable
   if (isNull(state.input1) || isNull(state.input2)) {
     return state.readout;
   }

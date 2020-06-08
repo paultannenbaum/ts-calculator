@@ -63,10 +63,35 @@ test('consecutive operand transitions', () => {
 
 // TODO: Add in this test
 test('Bad arithmetic', () => {
-  expect(true).toBe(true)
+  const machine = new Machine();
+
+  machine.transition(10);
+  machine.transition('divide');
+  machine.transition(0)
+  machine.transition('equals');
+  expect(machine.state.readout).toEqual(Infinity);
 })
 
-// TODO: Add in this test
 test('Random user input', () => {
-  expect(true).toBe(true)
+  const machine = new Machine();
+
+  machine.transition('add');
+  machine.transition('divide');
+  machine.transition(9)
+  expect(machine.state.readout).toEqual(9);
+  machine.transition('add');
+  machine.transition('divide');
+  expect(machine.state.readout).toEqual(9);
+  machine.transition(3)
+  machine.transition('equals');
+  expect(machine.state.readout).toEqual(3);
+})
+
+test('Clearing user input', () => {
+  const machine = new Machine();
+
+  machine.transition(9)
+  machine.transition('add');
+  machine.clear()
+  expect(machine.state.readout).toEqual(0);
 })
