@@ -1,17 +1,8 @@
+/// <reference path="./state-machine.d.ts" />
 import { add, subtract, multiply, divide } from './math';
 import { isNumber, isNull } from 'util';
 
 // TYPES
-type operand = 'add' | 'subtract' | 'multiply' | 'divide' | 'equals';
-type stateId = 'input1' | 'operand' | 'input2';
-type state = {
-  current: stateId;
-  input1: number | null;
-  input2: number | null;
-  operand: operand | null;
-  readout: number;
-};
-type payload = operand | number;
 type currentState = state;
 type updatedState = state;
 

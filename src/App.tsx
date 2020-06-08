@@ -1,12 +1,12 @@
+/// <reference path="./state-machine.d.ts" />
 import React, { useState } from 'react';
 import StateMachine from './state-machine';
 
 const calculator = new StateMachine()
-type operand = 'add' | 'subtract' | 'multiply' | 'divide' | 'equals';
 
 const App = () => {
   const[state, setState] = useState(calculator.state)
-  const handleInput = (val: number | operand) => {
+  const handleInput = (val: payload) => {
     calculator.transition(val);
     setState(calculator.state)
   }
