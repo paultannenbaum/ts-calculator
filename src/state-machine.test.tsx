@@ -31,3 +31,42 @@ test('multiple step operations', () => {
   machine.transition('equals');
   expect(machine.state.readout).toEqual(3);
 });
+
+test('consecutive number transitions', () => {
+  const machine = new Machine();
+
+  machine.transition(5);
+  machine.transition(0);
+  machine.transition(0);
+  machine.transition('subtract');
+  machine.transition(1);
+  machine.transition(0);
+  machine.transition(0);
+  machine.transition('equals');
+  expect(machine.state.readout).toEqual(400);
+});
+
+test('consecutive operand transitions', () => {
+  const machine = new Machine();
+
+  machine.transition(5);
+  machine.transition(0);
+  machine.transition(0);
+  machine.transition('subtract');
+  machine.transition('add');
+  machine.transition(1);
+  machine.transition(0);
+  machine.transition(0);
+  machine.transition('equals');
+  expect(machine.state.readout).toEqual(600);
+})
+
+// TODO: Add in this test
+test('Bad arithmetic', () => {
+  expect(true).toBe(true)
+})
+
+// TODO: Add in this test
+test('Random user input', () => {
+  expect(true).toBe(true)
+})
