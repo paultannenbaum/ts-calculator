@@ -61,7 +61,6 @@ test('consecutive operand transitions', () => {
   expect(machine.state.readout).toEqual(600);
 })
 
-// TODO: Add in this test
 test('Bad arithmetic', () => {
   const machine = new Machine();
 
